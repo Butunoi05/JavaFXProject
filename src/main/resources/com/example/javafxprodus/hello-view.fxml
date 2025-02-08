@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TabPane xmlns="http://javafx.com/javafx/8.0.171"
+         xmlns:fx="http://javafx.com/fxml/1"
+         fx:controller="com.example.javafxprodus.HelloController">
+    <tabs>
+        <!-- Tab pentru Produse -->
+        <Tab text="Produse">
+            <AnchorPane>
+                <VBox spacing="10" AnchorPane.topAnchor="10" AnchorPane.leftAnchor="10"
+                      AnchorPane.rightAnchor="10" AnchorPane.bottomAnchor="10">
+                    <!-- Tabelul de Produse -->
+                    <TableView fx:id="produsTable" prefHeight="300" prefWidth="600">
+                        <columns>
+                            <TableColumn fx:id="idProdusColumn" text="ID" prefWidth="50"/>
+                            <TableColumn fx:id="categorieProdusColumn" text="Categorie" prefWidth="150"/>
+                            <TableColumn fx:id="numeProdusColumn" text="Nume" prefWidth="200"/>
+                            <TableColumn fx:id="pretProdusColumn" text="Pret" prefWidth="100"/>
+                        </columns>
+                    </TableView>
+                    <!-- Secțiunea pentru adăugarea unui produs -->
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <TextField fx:id="produsIdField" promptText="ID" prefWidth="50"/>
+                        <TextField fx:id="produsCategorieField" promptText="Categorie" prefWidth="150"/>
+                        <TextField fx:id="produsNumeField" promptText="Nume" prefWidth="200"/>
+                        <TextField fx:id="produsPretField" promptText="Pret" prefWidth="100"/>
+                        <Button fx:id="addProdusButton" text="Add Product" onAction="#handleAddProduct"/>
+                    </HBox>
+                    <!-- Secțiunea pentru ștergerea unui produs după ID -->
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <Label text="Delete Product by ID:"/>
+                        <TextField fx:id="deleteProductIdField" promptText="ID" prefWidth="100"/>
+                        <Button fx:id="deleteProductByIdButton" text="Delete by ID" onAction="#handleDeleteProductById"/>
+                    </HBox>
+                </VBox>
+            </AnchorPane>
+        </Tab>
+        <!-- Tab pentru Comenzi -->
+        <Tab text="Comenzi">
+            <AnchorPane>
+                <VBox spacing="10" AnchorPane.topAnchor="10" AnchorPane.leftAnchor="10"
+                      AnchorPane.rightAnchor="10" AnchorPane.bottomAnchor="10">
+                    <!-- Tabelul de Comenzi -->
+                    <TableView fx:id="comandaTable" prefHeight="300" prefWidth="600">
+                        <columns>
+                            <TableColumn fx:id="idComandaColumn" text="ID" prefWidth="50"/>
+                            <TableColumn fx:id="dataLivrareColumn" text="Data Livrare" prefWidth="200"/>
+                            <TableColumn fx:id="produseColumn" text="Produse" prefWidth="300"/>
+                        </columns>
+                    </TableView>
+                    <!-- Secțiunea pentru adăugarea unei comenzi -->
+                    <VBox spacing="5">
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <TextField fx:id="comandaIdField" promptText="ID" prefWidth="50"/>
+                            <DatePicker fx:id="comandaDatePicker" promptText="Data Livrare" prefWidth="200"/>
+                        </HBox>
+                        <Label text="Select Products:"/>
+                        <ListView fx:id="comandaProduseListView" prefHeight="100" prefWidth="600"/>
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <Button fx:id="addComandaButton" text="Add Order" onAction="#handleAddOrder"/>
+                        </HBox>
+                    </VBox>
+                    <!-- Secțiunea pentru ștergerea unei comenzi după ID -->
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <Label text="Delete Order by ID:"/>
+                        <TextField fx:id="deleteOrderIdField" promptText="ID" prefWidth="100"/>
+                        <Button fx:id="deleteOrderByIdButton" text="Delete by ID" onAction="#handleDeleteOrderById"/>
+                    </HBox>
+                </VBox>
+            </AnchorPane>
+        </Tab>
+    </tabs>
+</TabPane>
